@@ -14,41 +14,27 @@
 <h2>Smuła klasa 3F</h2>
  <label for="b"></label> <input type="number" id="b"> 
  <br><br> 
- <input type="button" value="Cechy charakteru i osobowości" onclick="iloraz_smu()"> 
- <input type="button" value"" onclick="teoria_smu()">
+ <input type="button" value="Cechy charakteru i osobowości" onclick="iloraz()"> 
+ <input type="button" value"" onclick="teoria()">
  <div id="wynik" style="margin-top:20px;"></div> 
  <script> 
-  function suma_smu() 
+  function Cechy() 
   { 
-   var a_smu = document.getElementById("a").value; 
-   var b_smu = document.getElementById("b").value; 
-   if (a_smu == "" || b_smu == "") 
+   var a = document.getElementById("a").value; 
+   var b = document.getElementById("b").value; 
+   if (a == "" || b == "") 
    { 
    document.getElementById("wynik").innerHTML = "Proszę uzupełnić obie liczby."; 
-   } else 
-   { 
-    a = parseFloat(a_smu); 
-    b = parseFloat(b_smu); 
-    var suma_smu = a + b; 
-  document.getElementById("wynik").innerHTML = "Wynik działania wynosi: " + suma_smu; 
-   } 
-   //alert(a); 
-   //console.log(a); 
+   }
   } 
-  function roznica_smu() 
+  function roznica() 
   { 
-   var a_smu = document.getElementById("a").value; 
-   var b_smu = document.getElementById("b").value; 
-   if (a_smu == "" || b_smu == "") 
+   var a = document.getElementById("a").value; 
+   var b = document.getElementById("b").value; 
+   if (a == "" || b == "") 
    { 
   document.getElementById("wynik").innerHTML = "Proszę uzupełnić obie liczby."; 
-   } else 
-   { 
-    a = parseFloat(a_smu); 
-    b = parseFloat(b_smu); 
-    var roznica_smu = a - b; 
-  document.getElementById("wynik").innerHTML = "Wynik działania wynosi: " + roznica_smu; 
-   } 
+   }
    }
  </script> 
 </body> 
