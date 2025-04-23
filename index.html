@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Cechy charakteru i osobowości</title>
+    <style>
+        body {
+            background-color: rgb(157, 157, 157);
+            font-family: Verdana;
+            margin: 0;
+            padding: 0;
+        }
+        #zawartosc2 {
+            position: absolute;
+            top: 10px;
+            left: calc(50% + 150px);
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: none;
+            width: 200px;
+        }
+        header {
+            background-color: rgb(51, 51, 51);
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        nav {
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            display: inline-block;
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+        }
+        nav a:hover {
+            background-color: rgb(157, 157, 157);
+        }
+        main {
+            padding: 1em;
+            position: relative;
+        }
+        #zawartosc {
+            padding: 1em;
+        }
+        .fiszka {
+            border: 1px solid #ccc;
+            padding: 1em;
+            margin-bottom: 1em;
+            background-color: white;
+            cursor: pointer;
+        }
+        .fiszka-ukryta {
+            display: none;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+        #obraz {
+            display: block; 
+        }
+        #obraz.hidden {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>
+                <a href="#" onclick="laduj('charakter i osobowość')">Cechy charakteru i osobowości / Charaktereigenschaften und Persönlichkeit</a><br>
+                <a href="#" onclick="laduj('wyglad')">Wygląd / Aussehen</a>
+            </h1>
+        </nav>
+    </header>
+    <main>
+        <div id="zawartosc"></div>
+        <div id="obraz">  
+		<b>Kliknij na obraz / Klicken Sie auf das Bild</b>
+            <img src="chlopak.jpg" alt="Opis wyglądu" usemap="#bodymap">
+        </div>
+        <map name="bodymap">
+            <area shape="rect" coords="125,18,224,126" alt="Głowa" data-pl="Głowa" data-de="Kopf" onclick="pokazInfo('Głowa', 'Kopf')">
+            <area shape="rect" coords="120,126,216,294" alt="Tułów" data-pl="Tułów" data-de="Oberkörper" onclick="pokazInfo('Tułów', 'Oberkörper')">
+            <area shape="rect" coords="72,136,118,236" alt="Ręka" data-pl="Ręka" data-de="Hand" onclick="pokazInfo('Ręka', 'Hand')">
+			<area shape="rect" coords="19,133,71,185" alt="Dłoń" data-pl="Dłoń" data-de="Hand" onclick="pokazInfo('Dłoń', 'Hand')">
+            <area shape="rect" coords="217,127,243,295" alt="Ręka" data-pl="Ręka" data-de="Hand" onclick="pokazInfo('Ręka', 'Hand')">
+            <area shape="rect" coords="119,298,268,563" alt="Nogi" data-pl="Nogi" data-de="Beine" onclick="pokazInfo('Nogi', 'Beine')">
+            <area shape="rect" coords="124,565,177,602" alt="Stopa" data-pl="Stopa" data-de="Fuß" onclick="pokazInfo('Stopa', 'Fuß')">
+            <area shape="rect" coords="231,564,277,607" alt="Stopa" data-pl="Stopa" data-de="Fuß" onclick="pokazInfo('Stopa', 'Fuß')">
+        </map>
+        <div id="zawartosc2"></div>
+    </main>
+<footer>
+        <p> Krzysztof Smuła 3F 29</p>
+    </footer>
+    <script>
+        function laduj(strona) {
+            let zdiv = document.getElementById('zawartosc');
+            let zawartosc;
+            let obraz = document.getElementById('obraz');
+
+            switch (strona) {
+                case 'charakter i osobowość':
+                    zawartosc = function() {
+                        let fiszki = [
+                            { przod: "przyjazny", tyl: "freundlich " },//pozytywne
+                            { przod: "pomocny", tyl: "hilfsbereit " },
+                            { przod: "rzetelny", tyl: "zuverlässig " },
+							{ przod: "cierpliwy", tyl: "geduldig " },
+                            { przod: "optymistyczny", tyl: "optimistisch " },
+                            { przod: "pewny siebie", tyl: "selbstbewusst" },
+							{ przod: "inteligentny", tyl: "intelligent " },
+                            { przod: "otwarty", tyl: "offen" },
+							{ przod: "tolerancyjny", tyl: "tolerant" },
+                            { przod: "zabawny", tyl: "humorvoll " },
+                            { przod: "Odważny", tyl: "Mutig" },
+                            { przod: "Uczciwy", tyl: "Ehrlich" },
+                            { przod: "Kreatywny", tyl: "Kreativ" },
+							{ przod: "ambitny", tyl: "ehrgeizig " },
+                            { przod: "pracowity", tyl: "fleißig " },
+                            { przod: "odpowiedzialny", tyl: "verantwortungsbewusst " },
+							{ przod: "nieprzyjazny", tyl: "unfreundlich " },//negatywne
+                            { przod: "nierzetelny", tyl: "unzuverlässig " },
+                            { przod: "niecierpliwy", tyl: "ungeduldig" },
+							{ przod: "pesymistyczny", tyl: "pessimistisch " },
+                            { przod: "egocentryczny", tyl: "egozentrisch" },
+							{ przod: "głupi", tyl: "dumm" },
+                            { przod: "nieuczciwy", tyl: "unehrlich " },
+                            { przod: "nudny", tyl: "langweilig" },
+                            { przod: "niepewny siebie", tyl: "unsicher" },
+                            { przod: "zamknięty", tyl: "geschlossen" },
+							{ przod: "nietolerancyjny", tyl: "intolerant" },
+                            { przod: "tchórzliwy", tyl: "feige " },
+                            { przod: "leniwy", tyl: "faul" },
+                            { przod: "nieodpowiedzialny", tyl: "unverantwortlich" }
+                        ];
+                        let fiszkiHTML = '';
+                        for (let i = 0; i < fiszki.length; i++) {
+                            fiszkiHTML += `
+                                <div class="fiszka" onclick="pokazTyl(${i})">
+                                    <div class="przod">${fiszki[i].przod}</div>
+                                    <div class="tyl fiszka-ukryta" id="tyl-${i}">${fiszki[i].tyl}</div>
+                                </div>
+                            `;
+                        }
+                        return fiszkiHTML;
+                    };
+                    obraz.classList.add('hidden'); // Hide the image
+                    break;
+                case 'wyglad':
+                    zawartosc = '';
+                    obraz.classList.remove('hidden'); // Show the image
+                    break;
+            }
+
+            zdiv.innerHTML = (typeof zawartosc === 'function') ? zawartosc() : zawartosc;
+        }
+
+        function pokazTyl(index) {
+            let tylElement = document.getElementById(`tyl-${index}`);
+            if (tylElement) {
+                tylElement.classList.toggle('fiszka-ukryta');
+            }
+        }
+
+        function pokazInfo(polski, niemiecki) {
+            let zdiv2 = document.getElementById('zawartosc2');
+            zdiv2.style.display = 'block';
+            zdiv2.innerHTML = `<strong>Polski:</strong> ${polski}<br><strong>Niemiecki:</strong> ${niemiecki}`;
+        }
+
+        laduj('charakter i osobowość');
+    </script>
+</body>
+</html>
